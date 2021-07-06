@@ -10,9 +10,10 @@ COPY --from=pre-build package*.json ./
 
 RUN npm install --production
 
-COPY dist ./
+COPY build/module ./
 COPY static ./static
+COPY build/app ./static
 
 CMD ["node", "app.js"]
 
-EXPOSE 8081
+EXPOSE 8080
