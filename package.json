@@ -7,8 +7,12 @@
   "type": "module",
   "private": true,
   "dependencies": {
+    "@ombori/ga-messaging": "^2.67.14",
     "@ombori/ga-module": "^2.57.0",
+    "@types/react-dom": "^17.0.8",
     "express": "^4.17.1",
+    "webpack": "^5.42.1",
+    "webpack-cli": "^4.7.2",
     "ws": "^7.4.5"
   },
   "devDependencies": {
@@ -23,7 +27,7 @@
   "scripts": {
     "schema": "npx ts-schema src/module/schema.ts build/",
     "build": "mkdir -p build && tsc --build src/module/tsconfig.json && yarn schema && yarn build-app && omg module build",
-    "build-app": "tsc  --build src/app/tsconfig.json",
+    "build-app": "tsc  --build src/app/tsconfig.json && webpack build --mode production ./build/app -o ./build/app-bundle",
     "pub": "omg module publish",
     "deploy": "omg module deploy"
   }

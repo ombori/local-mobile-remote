@@ -12,7 +12,7 @@ RUN npm install --production
 
 COPY build/module ./
 COPY static ./static
-COPY build/app ./static
+COPY build/app-bundle ./static
 
 CMD ["node", "app.js"]
 

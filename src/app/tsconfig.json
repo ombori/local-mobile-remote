@@ -15,13 +15,14 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react",
-    "baseUrl": ".",
+    "isolatedModules": false,
     "outDir": "../../build/app",
+    "rootDir": ".",
+    "alwaysStrict": true,
+    "declaration": false,
+    "jsx": "react",
   },
   "include": [
-    "."
+    ".",
   ]
 }
