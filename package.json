@@ -1,6 +1,6 @@
 {
   "name": "ombori.local-mobile-remote",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Local mobile remote",
   "container-registry": "omborigridregistry.azurecr.io",
   "license": "UNLICENSED",
@@ -9,6 +9,8 @@
   "dependencies": {
     "@ombori/ga-module": "^2.57.0",
     "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "ws": "^7.4.5"
   },
   "devDependencies": {
@@ -19,6 +21,7 @@
   },
   "scripts": {
     "schema": "npx ts-schema src/schema.ts build/",
-    "build": "mkdir -p build && tsc && yarn schema && omg module build"
+    "build": "mkdir -p build && tsc && yarn schema && yarn build-app && omg module build",
+    "build-app": "npx tsc --jsx react webapp/index.tsx --outDir build/app"
   }
 }
