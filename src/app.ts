@@ -3,7 +3,6 @@ import http from 'http';
 import express from 'express';
 
 import { Settings } from './schema.js';
-import initProxy from './ws-proxy.js';
 
 const PORT = 8081;
 
@@ -18,14 +17,5 @@ app.use(express.json());
 
 // serve static files from 'static' folder
 app.use(express.static('static'));
-
-initProxy({
-  server,
-  module,
-  allowedMessages: {
-    incoming: ['Test.ping'],
-    outgoing: ['Test.pong'],
-  }
-});
 
 server.listen(PORT);
